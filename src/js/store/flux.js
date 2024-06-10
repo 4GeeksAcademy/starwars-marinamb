@@ -12,7 +12,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			favorites: [],
+			characters: [],
+			planets: [],
+			vehicles: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -23,7 +27,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
+				fetch("https://www.swapi.tech/api/people")
+				.then(response => response.json())
+				.then(data => setStore({ characters: data.results}))
+				
+				fetch("https://www.swapi.tech/api/planets")
+				.then(response => response.json())
+				.then(data => setStore({ planets: data.results}))
+
+				fetch("https://www.swapi.tech/api/vehicles")
+				.then(response => response.json())
+				.then(data => setStore({ vehicles: data.results}))
 			},
+			
+			addFavorites: (data) => {
+				setStore({favorites: [...getStore().favorites, data]})
+			},
+
+			deleteFavorites: (index) => {
+				let newFavorites = getStore().favorites.filter((favorite, i) => {
+					return i !== index;
+				});
+				setStore({ favorites: newFavorites });
+			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

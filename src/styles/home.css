@@ -1,0 +1,30 @@
+/* Estilos del carrusel para asegurar que las tarjetas no se envuelvan y permitan el desplazamiento horizontal */
+.carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+/* Estilos para las tarjetas para asegurar un tamaño fijo y ocultar el desbordamiento */
+.card {
+    flex: 0 0 auto; /* Asegura que las tarjetas no se encogen ni se agrandan */
+    width: 200px; /* Establece un ancho fijo para las tarjetas */
+    height: 550px; /* Establece una altura fija para las tarjetas */
+    margin: 10px;
+    overflow: hidden; /* Oculta el desbordamiento para evitar el scroll vertical */
+}
+
+/* Ajusta la altura de la imagen dentro de la tarjeta */
+.card img {
+    height: 65%; /* Ajusta la altura de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin estirarse */
+}
+
+/* Ajusta la altura del cuerpo de la tarjeta */
+.card-body {
+    height: 10%; /* Ajusta la altura del cuerpo */
+    overflow: hidden; /* Oculta el texto desbordado */
+}
+
+

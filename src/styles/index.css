@@ -1,3 +1,22 @@
-/* 
-    General Styles
-*/
+
+.principal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+}
+
+.card {
+    margin-inline: 15px;
+    margin-top: 15%;
+    border: 1px solid rgb(255, 215, 0);
+    background: rgb(122, 108, 108, 0.7);
+    color: white;
+    width: 50%;
+    height: 100%;
+} 
+
+.card img {
+    border: 1px solid rgb(255, 215, 0); 
+}
+
